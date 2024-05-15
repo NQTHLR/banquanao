@@ -21,7 +21,7 @@ function getIPAddress()
 //getting all products
 function getAllProducts()
 {
-   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $conn = mysqli_connect('banquanaoserver.mysql.database.azure.com', 'sqladmin', '#Nqthlr123Nqthlr123', 'eco_admin');
    $sql = "select * from product";
    $res = mysqli_query($conn, $sql);
    if ($res) {
@@ -87,7 +87,7 @@ function getProductsByCategory()
       $ctg = $split_ctg[0];
       $sub_ctg = $split_ctg[1];
 
-      $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+      $conn = mysqli_connect('banquanaoserver.mysql.database.azure.com', 'sqladmin', '#Nqthlr123Nqthlr123', 'eco_admin');
       $sql = "select * from product where p_ctag='$ctg' and p_sub_ctag='$sub_ctg'";
       $res = mysqli_query($conn, $sql);
       if ($res) {
@@ -118,7 +118,7 @@ function getProductsByCategory()
 function ItemInCart()
 {
    $ip = getIPAddress();
-   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $conn = mysqli_connect('banquanaoserver.mysql.database.azure.com', 'sqladmin', '#Nqthlr123', 'eco_admin');
    $sql = "select * from cart_details where ip_address = '$ip'";
    $res = mysqli_query($conn, $sql);
    $count_cart_item = mysqli_num_rows($res);
@@ -128,7 +128,7 @@ function ItemInCart()
 
 function PendingOrders()
 {
-   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $conn = mysqli_connect('banquanaoserver.mysql.database.azure.com', 'sqladmin', '#Nqthlr123', 'eco_admin');
    $sql = "select * from pending_orders  where order_status = 'pending'";
    $res = mysqli_query($conn, $sql);
    $pending_order = mysqli_num_rows($res);
@@ -138,7 +138,7 @@ function PendingOrders()
 
 function ProductQuantity()
 {
-   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $conn = mysqli_connect('banquanaoserver.mysql.database.azure.com', 'sqladmin', '#Nqthlr123', 'eco_admin');
    $sql = "select * from product  where p_quantity <= '0'";
    $res = mysqli_query($conn, $sql);
    $product_quantity = mysqli_num_rows($res);
